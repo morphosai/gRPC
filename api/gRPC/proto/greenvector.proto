@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option csharp_namespace = "GreenVectors.GrpcService";
+
+import "google/api/annotations.proto";
+
+package green_vector;
+
+message FacetVector {
+  string facet = 1;
+  repeated float vector = 2;
+}
+
+message InputVector {
+  repeated float vector = 3;
+  map<string, float> facet_weights = 4;
+}
+
+message GreenVectorRequest {
+  repeated FacetVector facet_vectors = 5;
+  repeated InputVector input_vectors = 6;
+}
+
+message GreenVectorReply {
+  repeated FacetVector facet_vectors = 7;
+}
+service GreenVectors {
+  rpc CreateBatch (GreenVectorRequest) returns (GreenVectorReply);
+
+//  rpc CreateBatchRest (GreenVectorRequest) returns (GreenVectorReply) {
+//    option (google.api.http) = {
+//      post: "/api/v1/vectors",
+//      body: "*"
+//    };
+//  }
+}
