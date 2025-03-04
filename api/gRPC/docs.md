@@ -30,9 +30,11 @@
 
 
 | Field | Type | Label | Description |
-| ----- | ---- | ----- |-------------|
-| facet | [string](#string) |  | Facet Name  |
-| vector | [float](#float) | repeated |             |
+| ----- | ---- | ----- | ----------- |
+| facet | [string](#string) |  | Facet Name or unique key |
+| vector | [float](#float) | repeated | Green Vector |
+| count | [uint64](#uint64) |  | Number of vectors processed for this facet |
+| average_weight | [float](#float) |  | Average weight of vectors processed for this facet |
 
 
 
